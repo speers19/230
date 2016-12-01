@@ -1,0 +1,237 @@
+//////// BIKE 1 COLLIDING WITH OWN STREAM/////////
+		for (int i = 1; i < bike1stream.size(); i++) {
+			Point p0 = bike1stream.get(i - 1);
+			Point p1 = bike1stream.get(i);
+
+			// vertical streams
+			if (approxEqual(hitbox1.getX(), p1.getX())) {
+				if (approxEqual(p1.getX(), p0.getX())) {
+
+					if (hitbox1.getY() < p1.getY()) {
+						if (hitbox1.getY() > p0.getY()) {
+							bike1.dead();
+						}
+					}
+
+					if (hitbox1.getY() > p1.getY()) {
+						if (hitbox1.getY() < p0.getY()) {
+							bike1.dead();
+						}
+					}
+				}
+			}
+
+			// horizontal streams
+			if (approxEqual(hitbox1.getY(), p1.getY())) {
+				if (approxEqual(p1.getY(), p0.getY())) {
+
+					if (hitbox1.getX() < p1.getX()) {
+						if (hitbox1.getX() > p0.getX()) {
+							bike1.dead();
+						}
+					}
+
+					if (hitbox1.getX() > p1.getX()) {
+						if (hitbox1.getX() < p0.getX()) {
+							bike1.dead();
+						}
+					}
+				}
+			}
+		}
+
+		////////// BIKE 1 COLLIDING WITH OTHER STERAM
+		for (int i = 1; i < bike2stream.size(); i++) {
+			Point p0 = bike2stream.get(i - 1);
+			Point p1 = bike2stream.get(i);
+
+			// vertical streams
+			if (approxEqual(hitbox1.getX(), p1.getX())) {
+
+				// incomplete streams
+				if (approxEqual(hitbox1.getX(), hitbox2.getX())) {
+					if (hitbox1.getY() < p1.getY()) {
+						if (hitbox1.getY() > hitbox2.getY()) {
+							bike1.dead();
+						}
+					}
+
+					if (hitbox1.getY() > p1.getY()) {
+						if (hitbox1.getY() < hitbox2.getY()) {
+							bike1.dead();
+						}
+					}
+				}
+
+				// complete streams
+				if (approxEqual(p1.getX(), p0.getX())) {
+
+					if (hitbox1.getY() < p1.getY()) {
+						if (hitbox1.getY() > p0.getY()) {
+							bike1.dead();
+						}
+					}
+
+					if (hitbox1.getY() > p1.getY()) {
+						if (hitbox1.getY() < p0.getY()) {
+							bike1.dead();
+						}
+					}
+				}
+			}
+
+			// horizontal streams
+			if (approxEqual(hitbox1.getY(), p1.getY())) {
+
+				// incomplete streams
+				if (approxEqual(hitbox1.getY(), hitbox2.getY())) {
+					if (hitbox1.getX() < p1.getX()) {
+						if (hitbox1.getX() > hitbox2.getX()) {
+							bike1.dead();
+						}
+					}
+
+					if (hitbox1.getX() > p1.getX()) {
+						if (hitbox1.getX() < hitbox2.getX()) {
+							bike1.dead();
+						}
+					}
+				}
+
+				// complete streams
+				if (approxEqual(p1.getY(), p0.getY())) {
+
+					if (hitbox1.getX() < p1.getX()) {
+						if (hitbox1.getX() > p0.getX()) {
+							bike1.dead();
+						}
+					}
+
+					if (hitbox1.getX() > p1.getX()) {
+						if (hitbox1.getX() < p0.getX()) {
+							bike1.dead();
+						}
+					}
+				}
+			}
+		}
+
+		////////// BIKE 2 COLLIDING WITH OWN STREAM ///////
+
+		for (int i = 1; i < bike2stream.size(); i++) {
+			Point p0 = bike2stream.get(i - 1);
+			Point p1 = bike2stream.get(i);
+
+			// //vertical streams
+			if (approxEqual(hitbox2.getX(), p1.getX())) {
+				if (approxEqual(p1.getX(), p0.getX())) {
+
+					if (hitbox2.getY() < p1.getY()) {
+						if (hitbox2.getY() > p0.getY()) {
+							bike2.dead();
+						}
+					}
+
+					if (hitbox2.getY() > p1.getY()) {
+						if (hitbox2.getY() < p0.getY()) {
+							bike2.dead();
+						}
+					}
+				}
+			}
+
+			// horizontal streams
+			if (approxEqual(hitbox2.getY(), p1.getY())) {
+				if (approxEqual(p1.getY(), p0.getY())) {
+
+					if (hitbox2.getX() < p1.getX()) {
+						if (hitbox2.getX() > p0.getX()) {
+							bike2.dead();
+						}
+					}
+
+					if (hitbox2.getX() > p1.getX()) {
+						if (hitbox2.getX() < p0.getX()) {
+							bike2.dead();
+						}
+					}
+				}
+			}
+		}
+
+		////////// BIKE 2 COLLIDING WITH OTHER STREAM ///////
+
+		for (int i = 1; i < bike1stream.size(); i++) {
+			Point p0 = bike1stream.get(i - 1);
+			Point p1 = bike1stream.get(i);
+
+			// //vertical streams
+			if (approxEqual(hitbox2.getX(), p1.getX())) {
+
+				// incomplete streams
+				if (approxEqual(hitbox1.getX(), hitbox2.getX())) {
+					if (hitbox2.getY() < p1.getY()) {
+						if (hitbox2.getY() > hitbox1.getY()) {
+							bike2.dead();
+						}
+					}
+
+					if (hitbox2.getY() > p1.getY()) {
+						if (hitbox2.getY() < hitbox1.getY()) {
+							bike2.dead();
+						}
+					}
+				}
+
+				// complete streams
+				if (approxEqual(p1.getX(), p0.getX())) {
+
+					if (hitbox2.getY() < p1.getY()) {
+						if (hitbox2.getY() > p0.getY()) {
+							bike2.dead();
+						}
+					}
+
+					if (hitbox2.getY() > p1.getY()) {
+						if (hitbox2.getY() < p0.getY()) {
+							bike2.dead();
+						}
+					}
+				}
+			}
+
+			// horizontal streams
+			if (approxEqual(hitbox2.getY(), p1.getY())) {
+
+				// incomplete streams
+				if (approxEqual(hitbox1.getY(), hitbox2.getY())) {
+					if (hitbox2.getX() < p1.getX()) {
+						if (hitbox2.getX() > hitbox1.getX()) {
+							bike2.dead();
+						}
+					}
+
+					if (hitbox2.getX() > p1.getX()) {
+						if (hitbox2.getX() < hitbox1.getX()) {
+							bike2.dead();
+						}
+					}
+				}
+
+				// complete streams
+				if (approxEqual(p1.getY(), p0.getY())) {
+
+					if (hitbox2.getX() < p1.getX()) {
+						if (hitbox2.getX() > p0.getX()) {
+							bike2.dead();
+						}
+					}
+
+					if (hitbox2.getX() > p1.getX()) {
+						if (hitbox2.getX() < p0.getX()) {
+							bike2.dead();
+						}
+					}
+				}
+			}
+		}
